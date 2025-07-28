@@ -1,0 +1,22 @@
+{
+  "name": "sanin2025-hirei-vote-share",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://hirofumikanda.github.io/sanin2025-hirei-vote-share",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^7.0.6"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.6.0",
+    "maplibre-gl-opacity": "^1.7.0"
+  }
+}

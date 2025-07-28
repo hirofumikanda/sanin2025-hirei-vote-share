@@ -1,0 +1,22 @@
+.map-legend {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+.legend-color {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+#legend-title {
+  height: 25px;
+  font-weight: bold;
+}
