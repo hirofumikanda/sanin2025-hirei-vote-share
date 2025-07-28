@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "OpenStreetMap Raster",
+  "name": "Sanin2025 hirei vote share",
   "sources": {
     "gsi-white": {
       "type": "raster",
