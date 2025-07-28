@@ -1,0 +1,384 @@
+{
+  "version": 8,
+  "name": "OpenStreetMap Raster",
+  "sources": {
+    "gsi-white": {
+      "type": "raster",
+      "tiles": ["https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png"],
+      "tileSize": 256,
+      "attribution": "<a href='https://maps.gsi.go.jp/development/ichiran.html#blank'>地理院タイル</a>",
+      "maxzoom": 14,
+      "minzoom": 5
+    },
+    "pref-vote-share": {
+      "tiles": [
+        "https://hirofumikanda.github.io/sanin2025-hirei-vote-share/tiles/pref-vote-share/{z}/{x}/{y}.pbf"
+      ],
+      "type": "vector",
+      "minzoom": 3,
+      "maxzoom": 11
+    }
+  },
+  "glyphs": "fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "gsi-white-layer",
+      "type": "raster",
+      "source": "gsi-white"
+    },
+    {
+      "id": "自民",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "jimin"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "jimin"], 5], ["<", ["get", "jimin"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "jimin"], 10], ["<", ["get", "jimin"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "jimin"], 15], ["<", ["get", "jimin"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "jimin"], 20], ["<", ["get", "jimin"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "jimin"], 25], ["<", ["get", "jimin"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "jimin"], 30], ["<", ["get", "jimin"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "jimin"], 35], ["<", ["get", "jimin"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "jimin"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "立民",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "ritsumin"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "ritsumin"], 5], ["<", ["get", "ritsumin"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "ritsumin"], 10], ["<", ["get", "ritsumin"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "ritsumin"], 15], ["<", ["get", "ritsumin"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "ritsumin"], 20], ["<", ["get", "ritsumin"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "ritsumin"], 25], ["<", ["get", "ritsumin"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "ritsumin"], 30], ["<", ["get", "ritsumin"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "ritsumin"], 35], ["<", ["get", "ritsumin"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "ritsumin"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "国民",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "kokumin"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "kokumin"], 5], ["<", ["get", "kokumin"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "kokumin"], 10], ["<", ["get", "kokumin"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "kokumin"], 15], ["<", ["get", "kokumin"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "kokumin"], 20], ["<", ["get", "kokumin"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "kokumin"], 25], ["<", ["get", "kokumin"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "kokumin"], 30], ["<", ["get", "kokumin"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "kokumin"], 35], ["<", ["get", "kokumin"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "kokumin"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "参政",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "sansei"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "sansei"], 5], ["<", ["get", "sansei"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "sansei"], 10], ["<", ["get", "sansei"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "sansei"], 15], ["<", ["get", "sansei"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "sansei"], 20], ["<", ["get", "sansei"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "sansei"], 25], ["<", ["get", "sansei"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "sansei"], 30], ["<", ["get", "sansei"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "sansei"], 35], ["<", ["get", "sansei"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "sansei"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "公明",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "koumei"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "koumei"], 5], ["<", ["get", "koumei"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "koumei"], 10], ["<", ["get", "koumei"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "koumei"], 15], ["<", ["get", "koumei"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "koumei"], 20], ["<", ["get", "koumei"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "koumei"], 25], ["<", ["get", "koumei"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "koumei"], 30], ["<", ["get", "koumei"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "koumei"], 35], ["<", ["get", "koumei"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "koumei"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "れいわ",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "reiwa"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "reiwa"], 5], ["<", ["get", "reiwa"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "reiwa"], 10], ["<", ["get", "reiwa"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "reiwa"], 15], ["<", ["get", "reiwa"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "reiwa"], 20], ["<", ["get", "reiwa"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "reiwa"], 25], ["<", ["get", "reiwa"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "reiwa"], 30], ["<", ["get", "reiwa"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "reiwa"], 35], ["<", ["get", "reiwa"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "reiwa"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "共産",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "kyosan"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "kyosan"], 5], ["<", ["get", "kyosan"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "kyosan"], 10], ["<", ["get", "kyosan"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "kyosan"], 15], ["<", ["get", "kyosan"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "kyosan"], 20], ["<", ["get", "kyosan"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "kyosan"], 25], ["<", ["get", "kyosan"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "kyosan"], 30], ["<", ["get", "kyosan"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "kyosan"], 35], ["<", ["get", "kyosan"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "kyosan"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "保守",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "hoshu"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "hoshu"], 5], ["<", ["get", "hoshu"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "hoshu"], 10], ["<", ["get", "hoshu"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "hoshu"], 15], ["<", ["get", "hoshu"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "hoshu"], 20], ["<", ["get", "hoshu"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "hoshu"], 25], ["<", ["get", "hoshu"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "hoshu"], 30], ["<", ["get", "hoshu"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "hoshu"], 35], ["<", ["get", "hoshu"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "hoshu"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "維新",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "ishin"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "ishin"], 5], ["<", ["get", "ishin"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "ishin"], 10], ["<", ["get", "ishin"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "ishin"], 15], ["<", ["get", "ishin"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "ishin"], 20], ["<", ["get", "ishin"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "ishin"], 25], ["<", ["get", "ishin"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "ishin"], 30], ["<", ["get", "ishin"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "ishin"], 35], ["<", ["get", "ishin"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "ishin"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "社民",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "shamin"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "shamin"], 5], ["<", ["get", "shamin"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "shamin"], 10], ["<", ["get", "shamin"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "shamin"], 15], ["<", ["get", "shamin"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "shamin"], 20], ["<", ["get", "shamin"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "shamin"], 25], ["<", ["get", "shamin"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "shamin"], 30], ["<", ["get", "shamin"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "shamin"], 35], ["<", ["get", "shamin"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "shamin"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "みらい",
+      "type": "fill",
+      "source": "pref-vote-share",
+      "source-layer": "pref_vote_share",
+      "minzoom": 3,
+      "paint": {
+        "fill-color": [
+          "case",
+          ["all", ["<", ["get", "mirai"], 5]],
+          "rgb(255,255,255)",
+          ["all", [">=", ["get", "mirai"], 5], ["<", ["get", "mirai"], 10]],
+          "rgb(255,223.125,223.125)",
+          ["all", [">=", ["get", "mirai"], 10], ["<", ["get", "mirai"], 15]],
+          "rgb(255,191.25,191.25)",
+          ["all", [">=", ["get", "mirai"], 15], ["<", ["get", "mirai"], 20]],
+          "rgb(255,159.375,159.375)",
+          ["all", [">=", ["get", "mirai"], 20], ["<", ["get", "mirai"], 25]],
+          "rgb(255,127.5,127.5)",
+          ["all", [">=", ["get", "mirai"], 25], ["<", ["get", "mirai"], 30]],
+          "rgb(255,95.625,95.625)",
+          ["all", [">=", ["get", "mirai"], 30], ["<", ["get", "mirai"], 35]],
+          "rgb(255,63.75,63.75)",
+          ["all", [">=", ["get", "mirai"], 35], ["<", ["get", "mirai"], 40]],
+          "rgb(255,31.875,31.875)",
+          [">=", ["get", "mirai"], 40],
+          "rgb(255,0,0)",
+          "rgb(255,255,255)"
+        ],
+        "fill-opacity": 0.7
+      }
+    }
+  ],
+  "center": [139.767, 35.681],
+  "zoom": 5
+}
