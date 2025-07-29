@@ -17,16 +17,6 @@ window.map = map;
 map.on("load", async () => {
   map.addControl(new maplibregl.NavigationControl());
 
-  map.on("move", () => {
-    const center = map.getCenter();
-    document.getElementById("fly").value =
-      center.lat.toFixed(6) +
-      ", " +
-      center.lng.toFixed(6) +
-      ", " +
-      map.getZoom().toFixed(2);
-  });
-
   const styleLayers = map.getStyle().layers;
   const controlsContainer = document.getElementById("layer-controls");
   const radioGroupName = "layer-radio-group";
@@ -131,20 +121,3 @@ function buildPopupContent(features) {
   html += "</table>";
   return html;
 }
-
-document.getElementById("fly").value =
-  initialCenter[1] + ", " + initialCenter[0] + ", " + initailZoom;
-
-document.getElementById("fly").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    var coords = document.getElementById("fly").value;
-    var pattern = /^-?\d+(\.\d+)?,\s*-?\d+(\.\d+)?,\s\d+(\.\d+)?$/;
-    if (pattern.test(coords)) {
-      var splittedCoods = coords.split(",");
-      map.jumpTo({
-        center: [parseFloat(splittedCoods[1]), parseFloat(splittedCoods[0])],
-        zoom: parseFloat(splittedCoods[2]),
-      });
-    }
-  }
-});
